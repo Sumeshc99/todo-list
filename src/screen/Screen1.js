@@ -6,13 +6,11 @@ import { useNavigation } from '@react-navigation/native'
 const Screen1 = () => {
 
    const navigation =  useNavigation()
-
   return (
     <View>
       <Text>Screen1</Text>
       <Button onPress={() => navigation.navigate('Home2')} title='button'/>
       <Button onPress={() => navigation.navigate('info')} title='infobutton'/> 
-   
     </View>
   )
 }
