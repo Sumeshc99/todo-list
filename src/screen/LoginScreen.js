@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import Navigation from '../Navigation/Navigation';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -16,7 +16,26 @@ const LoginScreen = () => {
   const [name, setname] = useState('');
   const [password, setpassword] = useState('');
   const [fullname, setfullname] = useState('');
-  console.log('name', name);
+
+  const storedetails = async () => {
+    const obj = {
+      name: name,
+      password: password,
+      fullname: fullname,
+    };
+
+    try {
+      const jsonvalue = JSON.stringify(obj);
+      await AsyncStorage.setItem('info', jsonvalue);
+    } catch (error) {}
+  };
+
+  const getdetails = async () => {
+    const getjsonvalue = await AsyncStorage.getItem('info');
+    getjsonvalue = JSON.parse(getjsonvalue);
+    console.log(getjsonvalue.fullname);
+  };
+
   return (
     <View style={{backgroundColor: 'white', flex: 1}}>
       <Text style={styles.title}>loginScreen</Text>
@@ -46,16 +65,12 @@ const LoginScreen = () => {
         onChangeText={text => setpassword(text)}
       />
 
-      <TouchableOpacity
-        style={styles.btnstyle}
-        onPress={() =>
-          navigation.navigate('loginpage', {
-            username: name,
-            userpassword: password,
-            fullname: fullname,
-          })
-        }>
+      <TouchableOpacity style={styles.btnstyle} onPress={() => storedetails()}>
         <Text style={styles.signintxt}>sign in</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.btnstyle} onPress={() => getdetails()}>
+        <Text style={styles.signintxt}>get details</Text>
       </TouchableOpacity>
     </View>
   );
