@@ -11,6 +11,8 @@ const Loginpage = () => {
       <Text>{route.params.userpassword}</Text>
       <Text>{route.params.fullname}</Text>
     </View>
+
+    
   )
 }
 
