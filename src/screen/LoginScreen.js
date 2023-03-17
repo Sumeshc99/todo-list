@@ -1,80 +1,96 @@
-import { StyleSheet, Text, View,TextInput, Button } from 'react-native'
-import React, { useState } from 'react'
-import { useNavigation } from '@react-navigation/native'
-import Navigation from '../Navigation/Navigation'
-
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button,
+  TouchableOpacity,
+} from 'react-native';
+import React, {useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import Navigation from '../Navigation/Navigation';
 
 const LoginScreen = () => {
-    const navigation =  useNavigation()
+  const navigation = useNavigation();
 
-    const [name, setname] = useState('')
-    const [password, setpassword] = useState('')
-    const [fullname,setfullname] = useState('')
-    console.log('name',name);
+  const [name, setname] = useState('');
+  const [password, setpassword] = useState('');
+  const [fullname, setfullname] = useState('');
+  console.log('name', name);
   return (
-    <View style={{backgroundColor:'white',flex:1}}>
+    <View style={{backgroundColor: 'white', flex: 1}}>
       <Text style={styles.title}>loginScreen</Text>
-      <TextInput 
-      placeholder='username' 
-      placeholderTextColor={"blue"}
-      style={styles.username}
-      value={name}
-      onChangeText={(text) => setname(text)}
-      />
 
-      <TextInput
-      placeholder='password'
-      placeholderTextColor={'blue'}
-      style={styles.password}
-      value={password}
-      secureTextEntry={true}
-      onChangeText={(text) => setpassword(text)}
-      />
+        <TextInput
+          placeholder="username"
+          placeholderTextColor={'blue'}
+          style={styles.row}
+          value={name}
+          onChangeText={text => setname(text)}
+        />
 
-      <TextInput
-        placeholder='full name'
-        placeholderTextColor={'blue'}
-        style={styles.fullname}
-        value={fullname}
-        onChangeText={(text) => setfullname(text)}
-      />
+        <TextInput
+          placeholder="password"
+          placeholderTextColor={'blue'}
+          style={styles.row}
+          value={password}
+          secureTextEntry={true}
+          onChangeText={text => setpassword(text)}
+        />
 
-      <Button title='sign in' onPress={() => navigation.navigate('loginpage',{
-        username: name,
-        userpassword: password,
-        fullname:fullname,
-      })} />
+        <TextInput
+          placeholder="full name"
+          placeholderTextColor={'blue'}
+          style={styles.row}
+          value={fullname}
+          onChangeText={text => setfullname(text)}
+        />
+      <TouchableOpacity
+        style={styles.btnstyle}
+        onPress={() =>
+          navigation.navigate('loginpage', {
+            username: name,
+            userpassword: password,
+            fullname: fullname,
+          })
+        }>
+        <Text style={styles.signintxt}>sign in</Text>
+      </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
-export default LoginScreen
+export default LoginScreen;
 
 const styles = StyleSheet.create({
-    title:{
-        fontSize:30,
-        margin:20,
-        color:'blue',
-    },
+  title: {
+    fontSize: 30,
+    margin: 20,
+    color: 'blue',
+  },
 
-    username:{
-        borderWidth:1,
-        marginTop:10,
-        marginHorizontal:20,
-        paddingLeft:20,
-    },
+  row:{
+    borderWidth: 1,
+    marginTop: 10,
+    marginHorizontal: 20,
+    paddingLeft: 20,
+    borderRadius:20
+  },
 
-    password:{
-        borderWidth:1,
-        marginTop:10,
-        marginHorizontal:20,
-        paddingLeft:20,
-    },
+  btnstyle: {
+    margin: 20,
+    marginTop:30,
+    width: 100,
+    height: 50,
+    backgroundColor: 'blue',
+    borderWidth: 2,
+    borderRadius: 20,
+    paddingVertical: 5,
+  },
 
-    fullname:{
-        borderWidth:1,
-        marginTop:10,
-        marginHorizontal:20,
-        paddingLeft:20,
-    }
-})
+  signintxt: {
+    color: 'white',
+    fontSize: 20,
+    textAlign: 'center',
+  },
+});
