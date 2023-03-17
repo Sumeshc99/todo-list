@@ -14,6 +14,10 @@ const Screen1 = () => {
       <TouchableOpacity style={styles.login} onPress={() => navigation.navigate('login') }>
         <Text >go to login page</Text>   
       </TouchableOpacity>
+
+      <TouchableOpacity style={styles.login} onPress={() => navigation.navigate('localstorage') }>
+        <Text >go to login page</Text>   
+      </TouchableOpacity>
     </View>
   )
 }

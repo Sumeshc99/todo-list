@@ -21,30 +21,31 @@ const LoginScreen = () => {
     <View style={{backgroundColor: 'white', flex: 1}}>
       <Text style={styles.title}>loginScreen</Text>
 
-        <TextInput
-          placeholder="username"
-          placeholderTextColor={'blue'}
-          style={styles.row}
-          value={name}
-          onChangeText={text => setname(text)}
-        />
+      <TextInput
+        placeholder="full name"
+        placeholderTextColor={'blue'}
+        style={styles.row}
+        value={fullname}
+        onChangeText={text => setfullname(text)}
+      />
 
-        <TextInput
-          placeholder="password"
-          placeholderTextColor={'blue'}
-          style={styles.row}
-          value={password}
-          secureTextEntry={true}
-          onChangeText={text => setpassword(text)}
-        />
+      <TextInput
+        placeholder="username"
+        placeholderTextColor={'blue'}
+        style={styles.row}
+        value={name}
+        onChangeText={text => setname(text)}
+      />
 
-        <TextInput
-          placeholder="full name"
-          placeholderTextColor={'blue'}
-          style={styles.row}
-          value={fullname}
-          onChangeText={text => setfullname(text)}
-        />
+      <TextInput
+        placeholder="password"
+        placeholderTextColor={'blue'}
+        style={styles.row}
+        value={password}
+        secureTextEntry={true}
+        onChangeText={text => setpassword(text)}
+      />
+
       <TouchableOpacity
         style={styles.btnstyle}
         onPress={() =>
@@ -69,17 +70,17 @@ const styles = StyleSheet.create({
     color: 'blue',
   },
 
-  row:{
+  row: {
     borderWidth: 1,
     marginTop: 10,
     marginHorizontal: 20,
     paddingLeft: 20,
-    borderRadius:20
+    borderRadius: 20,
   },
 
   btnstyle: {
     margin: 20,
-    marginTop:30,
+    marginTop: 30,
     width: 100,
     height: 50,
     backgroundColor: 'blue',
