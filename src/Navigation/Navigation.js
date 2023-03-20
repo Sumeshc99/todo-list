@@ -8,6 +8,8 @@ import Screen3 from '../screen/Screen3';
 import LoginScreen from '../screen/LoginScreen';
 import Loginpage from '../screen/Loginpage';
 import Local_storage from '../screen/Local_storage';
+import Api from '../screen/Api';
+import ApicallusingExios from '../screen/ApicallusingExios';
 
 const Stack = createNativeStackNavigator();
 const Navigation = () => {
@@ -19,6 +21,8 @@ const Navigation = () => {
         <Stack.Screen name='login' component={LoginScreen}/>
         <Stack.Screen name='loginpage' component={Loginpage}/>
         <Stack.Screen name='localstorage' component={Local_storage} />
+        <Stack.Screen name='api' component={Api}/>
+        <Stack.Screen name= 'exios1' component={ApicallusingExios}/>
 
     </Stack.Navigator>
   </NavigationContainer>;
