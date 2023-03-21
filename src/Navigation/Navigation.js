@@ -10,6 +10,7 @@ import Loginpage from '../screen/Loginpage';
 import Local_storage from '../screen/Local_storage';
 import Api from '../screen/Api';
 import ApicallusingExios from '../screen/ApicallusingExios';
+import Flatlist1 from '../screen/Flatlist1';
 
 const Stack = createNativeStackNavigator();
 const Navigation = () => {
@@ -23,6 +24,7 @@ const Navigation = () => {
         <Stack.Screen name='localstorage' component={Local_storage} />
         <Stack.Screen name='api' component={Api}/>
         <Stack.Screen name= 'exios1' component={ApicallusingExios}/>
+        <Stack.Screen name= 'flatlist' component={Flatlist1}/>
 
     </Stack.Navigator>
   </NavigationContainer>;

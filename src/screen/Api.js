@@ -50,7 +50,7 @@ const Api = () => {
   }
 
 
-  const postMethod2 =async () => {
+  const postMethod2 = async () => {
     const method2 = await fetch('https://reqres.in/api/users',{
       method : 'POST',
       headers: { Accept: 'application/json',
