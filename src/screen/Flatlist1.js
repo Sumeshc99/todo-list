@@ -1,21 +1,25 @@
 import {Button, FlatList, Modal, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
+import { useSelector } from 'react-redux';
 
 const flatlist1 = () => {
   const [modal1, setmodal1] = useState(false);
 
+ const select =  useSelector(state => state)
+   const userdata = select.LoginReducer
+
   const users = [
     {
       id: 1,
-      name: 'sum',
+      name: userdata.name,
     },
     {
       id: 2,
-      name: 'dum',
+      name: userdata.password,
     },
     {
       id: 3,
-      name: 'dhdsbf',
+      name: userdata.fullname,
     },
     {
       id: 4,

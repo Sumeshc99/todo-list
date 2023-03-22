@@ -5,10 +5,10 @@ import {
   Button,
   TouchableOpacity,
   PermissionsAndroid,
-  Alert
+  Alert,
 } from 'react-native';
-import React, {useEffect} from 'react';
-import {useNavigation} from '@react-navigation/native';
+import React, { useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const Screen1 = () => {
   useEffect(() => {
@@ -24,12 +24,12 @@ const Screen1 = () => {
         PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
       );
     } catch (error) {
-      Alert.alert(error)
+      Alert.alert(error);
     }
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <Text>Screen1</Text>
       <Button onPress={() => navigation.navigate('Home2')} title="to do list" />
       <Button onPress={() => navigation.navigate('info')} title="infobutton" />
