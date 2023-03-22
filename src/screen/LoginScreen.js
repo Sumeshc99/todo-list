@@ -9,15 +9,32 @@ import {
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useDispatch ,useSelector} from 'react-redux';
+import {LoginDetail} from '../redux/reducers/Reducers'
 
 const LoginScreen = () => {
-  const navigation = useNavigation();
 
+  const navigation = useNavigation();
+  const dispatch = useDispatch()
+  const select = useSelector(state => state)
+
+  console.log(' REDUX resp',select);
   const [name, setname] = useState('');
   const [password, setpassword] = useState('');
   const [fullname, setfullname] = useState('');
 
+
+
   const storedetails = async () => {
+
+    dispatch(
+      LoginDetail({
+        name: name,
+        password: password,
+        fullname: fullname,
+      })
+    )
+
     const obj = {
       name: name,
       password: password,

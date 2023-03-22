@@ -8,12 +8,26 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useSelector,useDispatch } from 'react-redux';
+import { stringvalue } from '../redux/reducers/Reducer2';
 
 const Local_storage = () => {
+
+  const dispatch = useDispatch()
+
   const [input, setinput] = useState('');
   const [Storage, setStorage] = useState('');
 
+  const select2 = useSelector(state => state)
+  console.log("select val 2",select2);
+
   const addItem = async () => {
+    dispatch(
+      stringvalue({
+        string : input
+      })
+    )
+
     try {
       await AsyncStorage.setItem('itemlist', input);
       setinput('')
